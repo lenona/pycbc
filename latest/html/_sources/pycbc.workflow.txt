@@ -4,14 +4,6 @@ pycbc.workflow package
 Submodules
 ----------
 
-pycbc.workflow.analysislogging module
--------------------------------------
-
-.. automodule:: pycbc.workflow.analysislogging
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 pycbc.workflow.coincidence module
 ---------------------------------
 
@@ -48,6 +40,14 @@ pycbc.workflow.datafind module
 ------------------------------
 
 .. automodule:: pycbc.workflow.datafind
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pycbc.workflow.gatefiles module
+-------------------------------
+
+.. automodule:: pycbc.workflow.gatefiles
     :members:
     :undoc-members:
     :show-inheritance:
@@ -116,14 +116,6 @@ pycbc.workflow.plotting module
     :undoc-members:
     :show-inheritance:
 
-pycbc.workflow.postprocessing module
-------------------------------------
-
-.. automodule:: pycbc.workflow.postprocessing
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 pycbc.workflow.postprocessing_cohptf module
 -------------------------------------------
 
@@ -132,18 +124,18 @@ pycbc.workflow.postprocessing_cohptf module
     :undoc-members:
     :show-inheritance:
 
-pycbc.workflow.postprocessing_prep module
------------------------------------------
-
-.. automodule:: pycbc.workflow.postprocessing_prep
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 pycbc.workflow.psd module
 -------------------------
 
 .. automodule:: pycbc.workflow.psd
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pycbc.workflow.psdfiles module
+------------------------------
+
+.. automodule:: pycbc.workflow.psdfiles
     :members:
     :undoc-members:
     :show-inheritance:
