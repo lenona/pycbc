@@ -216,6 +216,7 @@ Updates to Lalsuite
 This will need to be done every time there is a change to lalsuite.
 
 .. code:: bash
+
    rm -rf /path/to/home/lalsuite
    mkdir -p /path/to/home/src
    cd /path/to/home/src
@@ -309,7 +310,7 @@ An executables.ini will also need to be created for running on OSG.
    vim osg_executables.ini
 
 Once you are in the ```osg_executables.ini``` file. You need to make some changes to the locations of the executables.
-In vim run the command after pressing ``shift+;``:
+In vim run the command after pressing ``shift+;``.
 
 .. code-block::
 

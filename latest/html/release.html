@@ -393,6 +393,15 @@ which pyinstaller
 <div class="section" id="updates-to-lalsuite">
 <h2>Updates to Lalsuite<a class="headerlink" href="#updates-to-lalsuite" title="Permalink to this headline">¶</a></h2>
 <p>This will need to be done every time there is a change to lalsuite.</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>rm -rf /path/to/home/lalsuite
+mkdir -p /path/to/home/src
+cd /path/to/home/src
+git clone git://versions.ligo.org/lalsuite.git
+cd lalsuite
+git checkout [lalsuite_tag]
+git cherry-pick [commit]
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Always verify the correct lalsuite tag or branch before updating lalsuite.</p>
@@ -460,7 +469,7 @@ vim osg_executables.ini
 </pre></div>
 </div>
 <p>Once you are in the <code class="docutils literal"><span class="pre">`osg_executables.ini`</span></code> file. You need to make some changes to the locations of the executables.
-In vim run the command after pressing <code class="docutils literal"><span class="pre">shift+;</span></code>:</p>
+In vim run the command after pressing <code class="docutils literal"><span class="pre">shift+;</span></code>.</p>
 <p>After this change you will have to manually change inpsiral back to: <code class="docutils literal"><span class="pre">inspiral</span> <span class="pre">=</span> <span class="pre">http://code.pycbc.phy.syr.edu/pycbc-software/v1.2.5/x86_64/composer_xe_2015.0.090/pycbc_inspiral</span></code> with the correct version number.</p>
 </div>
 <div class="section" id="lalapps-inspinj">
@@ -640,7 +649,7 @@ tar -xf bundle_env2.7.tgz
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014, Alexander Nitz.
-      Last updated on Apr 12, 2016.
+      Last updated on Apr 13, 2016.
 
     </p>
   </div>
