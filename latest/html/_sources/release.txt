@@ -309,12 +309,8 @@ An executables.ini will also need to be created for running on OSG.
    cp executables.ini osg_executables.ini
    vim osg_executables.ini
 
-Once you are in the ```osg_executables.ini``` file. You need to make some changes to the locations of the executables.
-In vim run the command after pressing ``shift+;``.
-
-.. code-block::
-
-   %s#http://code.pycbc.phy.syr.edu#/opt#gc
+Once you are in the ``osg_executables.ini`` file. You need to make some changes to the locations of the executables.
+In vim after pressing ``shift+;``, run the command ``%s#http://code.pycbc.phy.syr.edu#/opt#gc``.
 
 After this change you will have to manually change inpsiral back to: ``inspiral = http://code.pycbc.phy.syr.edu/pycbc-software/v1.2.5/x86_64/composer_xe_2015.0.090/pycbc_inspiral`` with the correct version number.
 
