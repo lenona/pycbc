@@ -250,13 +250,9 @@ python setup.py sdist upload -r pypi
 <h2>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Every time you log into <code class="docutils literal"><span class="pre">sugar-dev2</span></code> you will need to run the commands <code class="docutils literal"><span class="pre">source</span> <span class="pre">/cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/current/init/bash</span></code> and <code class="docutils literal"><span class="pre">`module</span> <span class="pre">load</span> <span class="pre">python/2.7</span></code></p>
+<p class="last">Every time you log into <code class="docutils literal"><span class="pre">sugar-dev2</span></code> you will need to run the commands <code class="docutils literal"><span class="pre">source</span> <span class="pre">/cvmfs/oasis.opensciencegrid.org/osg/modules/lmod/current/init/bash</span></code> and <code class="docutils literal"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">python/2.7</span></code></p>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If <code class="docutils literal"><span class="pre">bundle_env2.6.tgz</span></code> and <code class="docutils literal"><span class="pre">bundle_env2.7.tgz</span></code> exist then you do not need to follow these steps as they help set up the virtual environments.</p>
-</div>
-<p>If <code class="docutils literal"><span class="pre">bundle_env2.6.tgz</span></code> and <code class="docutils literal"><span class="pre">bundle_env2.7.tgz</span></code> exist run the commands:</p>
+<p>If <code class="docutils literal"><span class="pre">bundle_env2.6.tgz</span></code> and <code class="docutils literal"><span class="pre">bundle_env2.7.tgz</span></code> exist then you do not need to follow these steps as they help set up the virtual environments.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>cd ~
 tar -xf bundle_env2.6.tgz
 tar -xf bundle_env2.7.tgz
@@ -349,6 +345,7 @@ git remote add upstream git@github.com:ligo-cbc/pycbc.git
 git remote -vvv
 </pre></div>
 </div>
+<p>Running <code class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-vvv</span></code> will allow you to check that you origin points to your version of pycbc.</p>
 <p>The program used to create a static binary from a Python program is
 <a class="reference external" href="http://www.pyinstaller.org/">PyInstaller</a>.  To set up PyInstaller:</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>cd $VIRTUAL_ENV/src
@@ -362,7 +359,6 @@ vim bootloader/common/pyi_utils.c
 <p class="first admonition-title">Note</p>
 <p class="last">The build_bundle_env.sh is located on github at [insert link]</p>
 </div>
-<p>Running <code class="docutils literal"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-vvv</span></code> will allow you to check that you origin points to your version of pycbc.</p>
 <p>By default programs built with PyInstaller will ignore the <code class="docutils literal"><span class="pre">LD_LIBRARY_PATH</span></code>
 environment variable, which causes problems in some environments.  To fix this
 edit <code class="docutils literal"><span class="pre">bootloader/common/pyi_utils.c</span></code> and replace the function <code class="docutils literal"><span class="pre">set_dynamic_library_path</span></code> with the following</p>
