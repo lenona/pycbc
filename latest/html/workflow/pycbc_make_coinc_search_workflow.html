@@ -809,7 +809,8 @@ is to include the <code class="docutils literal"><span class="pre">osg_executabl
 <div class="section" id="running-the-workflow">
 <h3>Running the workflow<a class="headerlink" href="#running-the-workflow" title="Permalink to this headline">¶</a></h3>
 <p>Add the following arguments to <code class="docutils literal"><span class="pre">pycbc_submit_dax</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>--execution-sites osg \
+<div class="highlight-python"><div class="highlight"><pre>--no-create-proxy \
+--execution-sites osg \
 --append-pegasus-property &#39;pegasus.transfer.bypass.input.staging=true’ \
 --remote-staging-server `hostname -f` \
 --cache [URL/location of osg cache file] \

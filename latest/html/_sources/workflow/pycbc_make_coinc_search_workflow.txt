@@ -703,6 +703,7 @@ Running the workflow
 
 Add the following arguments to ``pycbc_submit_dax``::
 
+    --no-create-proxy \
     --execution-sites osg \
     --append-pegasus-property 'pegasus.transfer.bypass.input.staging=true’ \
     --remote-staging-server `hostname -f` \
