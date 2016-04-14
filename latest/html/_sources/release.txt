@@ -113,7 +113,8 @@ You will need to have a copy of lalsuite to distribute the binaries.
 In order to distribute the binaries it will first be necessary to have a copy of the git repository
 
 .. code::
-
+    
+    cd ${HOME}
     git clone git@code.pycbc.phy.syr.edu:ligo-cbc/pycbc-software.git
 
 To set up an environment for the release first follow the standard installation
@@ -146,9 +147,7 @@ Before creating your 2.7 virtual environment:
     mv ${HOME}/local ${HOME}/local_2.6
     mv ${HOME}/.local ${HOME}/.local_2.6
 
-Once your 2.7 virtual environment is built, run the same move commands and change 2.6 to 2.7. 
-
-These steps will configure your virtual environments to be able to build bundles.
+Once your 2.7 virtual environment is built, run the same move commands and change 2.6 to 2.7. These steps will configure your virtual environments to be able to build bundles.
 
 Install pyCBC using the requirements file to ensure the correct version of all dependancies is installed.
 
@@ -282,10 +281,6 @@ To update your virtual environments with the one on github.
    git checkout [new version]
    python setup.py install
 
-.. note::
-
-   The update will need to be done for the 2.6 and 2.7 virtual environments.
-
 Create a directory for the new release.
 
 .. code:: bash
@@ -303,7 +298,7 @@ from a previous one:
 
 Edit the ``README.md`` file for the new release.
 
-To find the commit to add run:
+To find the commit to add to the ``README.md``:
  
 .. code:: bash
 
@@ -468,6 +463,7 @@ by adding the name of the new program to the ``needs_full_build`` file in the
 When the build finishes you will have to move the bundles to the directory under ``pycbc_software``.
 
 .. code:: bash
+
    mv dist/* /path/to/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
 
 Making the change to the correct version.
@@ -525,6 +521,7 @@ and ensure that the resulting executable has the correct version
 When the build finishes you will have to move ``pycbc_inspiral`` to the directory under ``pycbc_software``.
 
 .. code:: bash
+
       mv dist/pycbc_inspiral /path/to/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
 
 ------------
