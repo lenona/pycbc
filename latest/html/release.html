@@ -583,7 +583,7 @@ been added and pyinstaller needs to be told that it needs scipy.  This is done
 by adding the name of the new program to the <code class="docutils literal"><span class="pre">needs_full_build</span></code> file in the
 <code class="docutils literal"><span class="pre">tools/static</span></code> directory. If there are failures during the bundling it my be because the program needs a complete build or can&#8217;t be built at all. If it needs scipy add it to <code class="docutils literal"><span class="pre">needs_full_build</span></code>. If it can&#8217;t be built at all, add it to <code class="docutils literal"><span class="pre">can't_be_built</span></code>.</p>
 <p>When the build finishes you will have to move the bundles to the directory under <code class="docutils literal"><span class="pre">pycbc_software</span></code>.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>mv dist/* /path/to/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
+<div class="code bash highlight-python"><div class="highlight"><pre>mv dist/* ${HOME}/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
 </pre></div>
 </div>
 <p>Making the change to the correct version.</p>
@@ -627,7 +627,7 @@ Repository status is CLEAN: All modifications committed
 </pre></div>
 </div>
 <p>When the build finishes you will have to move <code class="docutils literal"><span class="pre">pycbc_inspiral</span></code> to the directory under <code class="docutils literal"><span class="pre">pycbc_software</span></code>.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>mv dist/pycbc_inspiral /path/to/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
+<div class="code bash highlight-python"><div class="highlight"><pre>mv dist/pycbc_inspiral ${HOME}/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
 </pre></div>
 </div>
 </div>

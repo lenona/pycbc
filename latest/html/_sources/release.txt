@@ -464,7 +464,7 @@ When the build finishes you will have to move the bundles to the directory under
 
 .. code:: bash
 
-   mv dist/* /path/to/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
+   mv dist/* ${HOME}/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
 
 Making the change to the correct version.
 
@@ -522,7 +522,7 @@ When the build finishes you will have to move ``pycbc_inspiral`` to the director
 
 .. code:: bash
 
-      mv dist/pycbc_inspiral /path/to/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
+      mv dist/pycbc_inspiral ${HOME}/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
 
 ------------
 Finishing up
