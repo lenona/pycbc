@@ -814,15 +814,11 @@ is to include the <code class="docutils literal"><span class="pre">osg_executabl
 --append-pegasus-property &#39;pegasus.transfer.bypass.input.staging=true’ \
 --remote-staging-server `hostname -f` \
 --cache [URL/location of osg cache file] \
---append-pegasus-property &#39;pegasus.selector.replica Regex&#39; \
---append-pegasus-property &#39;pegasus.selector.replica.regex.rank.1 file:///scratch.*&#39;  \
---append-pegasus-property &#39;pegasus.selector.replica.regex.rank.2 root://srm.unl.edu.*&#39; \
---append-pegasus-property &#39;pegasus.selector.replica.regex.rank.3 .\*&#39; \
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Cache files for the C02 frames can be obtained from <a class="reference external" href="https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/tree/master/O1/osg-cache-frame-files">https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/tree/master/O1/osg-cache-frame-files</a>.</p>
+<p class="last">Cache files for the C02 frames can be obtained from <a class="reference external" href="https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/tree/master/O1/osg-cache-frame-files">https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/tree/master/O1/osg-cache-frame-files</a>. The cache file contains the location of the frame files on Sugar, XSede, and xroot.</p>
 </div>
 <p><code class="docutils literal"><span class="pre">hostname</span> <span class="pre">-f</span></code> will give the correct value if there is a gsiftp server running on the submit machine.  If not, change this as needed. The remote-staging-site is the intermediary computer than can pass files between the submitting computer and the computers doing the work.  <code class="docutils literal"><span class="pre">hostname</span> <span class="pre">-f</span></code> returns the full name of the computer. The full name of the computer that <code class="docutils literal"><span class="pre">hostname</span> <span class="pre">-f</span></code> has to be one that is accessible to both the submit machine and the workers.</p>
 <p>Before running the workflow, a proxy compatible with Xrootd needs to be generated. To generate this proxy run the commands</p>
@@ -864,7 +860,7 @@ perl -pi.bak -e &#39;s+gsiftp://sugar-dev2.phy.syr.edu/home+file:///home+g&#39; 
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014, Alexander Nitz.
-      Last updated on Apr 14, 2016.
+      Last updated on Apr 21, 2016.
 
     </p>
   </div>
