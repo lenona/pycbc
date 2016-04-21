@@ -465,6 +465,12 @@ When the build finishes you will have to move the bundles to the directory under
 
 Making the change to the correct version.
 
+To clean up the build directory on ``sugar-dev3`` after you move the bundles you will need to be in ``tools/static`` directory:
+
+.. code:: bash
+
+   rm -rf *err *out *spec dist/* build/* build_static.dag*
+
 --------------
 pycbc_inspiral
 --------------
@@ -520,6 +526,12 @@ When the build finishes you will have to move ``pycbc_inspiral`` to the director
 .. code:: bash
 
       mv dist/pycbc_inspiral ${HOME}/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
+
+To clean up the build directory on ``sugar-dev2`` after you move the bundles you will need to be in ``tools/static`` directory:
+
+.. code:: bash 
+
+   rm -rf *spec dist/* build/*
 
 ------------
 Finishing up

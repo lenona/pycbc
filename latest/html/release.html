@@ -583,6 +583,10 @@ by adding the name of the new program to the <code class="docutils literal"><spa
 </pre></div>
 </div>
 <p>Making the change to the correct version.</p>
+<p>To clean up the build directory on <code class="docutils literal"><span class="pre">sugar-dev3</span></code> after you move the bundles you will need to be in <code class="docutils literal"><span class="pre">tools/static</span></code> directory:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>rm -rf *err *out *spec dist/* build/* build_static.dag*
+</pre></div>
+</div>
 </div>
 <div class="section" id="pycbc-inspiral">
 <h3>pycbc_inspiral<a class="headerlink" href="#pycbc-inspiral" title="Permalink to this headline">¶</a></h3>
@@ -624,6 +628,10 @@ Repository status is CLEAN: All modifications committed
 </div>
 <p>When the build finishes you will have to move <code class="docutils literal"><span class="pre">pycbc_inspiral</span></code> to the directory under <code class="docutils literal"><span class="pre">pycbc_software</span></code>.</p>
 <div class="code bash highlight-python"><div class="highlight"><pre>mv dist/pycbc_inspiral ${HOME}/pycbc_software/v1.2.5/x86_64/composer_xe_2015.0.090
+</pre></div>
+</div>
+<p>To clean up the build directory on <code class="docutils literal"><span class="pre">sugar-dev2</span></code> after you move the bundles you will need to be in <code class="docutils literal"><span class="pre">tools/static</span></code> directory:</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>rm -rf *spec dist/* build/*
 </pre></div>
 </div>
 </div>
