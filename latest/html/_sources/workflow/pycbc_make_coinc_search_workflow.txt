@@ -687,11 +687,12 @@ is to include the ``osg_executables.ini``. This file can be downloaded from::
 
     https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/tree/master
 
-When downloading the ``osg_executables.ini`` make sure that you are obtaining the correct version.
+When downloading the ``osg_executables.ini`` make sure that you are obtaining the correct version. The URL/location for the ``osg_executables.ini`` should be added to the list of config files::
+
+    [URL/location for osg_executables.ini] \
 
 Add the following to the list of ``--config-overrides`` when running ``pycbc_make_coinc_search_workflow``::
      
-    [URL/location for osg_executables.ini] \
     'pegasus_profile-inspiral:hints|execution.site:osg' \
     'pegasus_profile-inspiral:condor|request_memory:1920M' \
     'workflow-main:staging-site:osg=osg-scratch' \
@@ -701,11 +702,18 @@ Add the following to the list of ``--config-overrides`` when running ``pycbc_mak
 Running the workflow
 --------------------
 
+Before running the workflow, a proxy compatible with Xrootd needs to be generated. To generate this proxy run the commands
+::
+
+    ligo-proxy-init albert.einstein
+    cp /tmp/x509up_u`id -u` /tmp/x509up_u`id -u`.orig
+    grid-proxy-init -valid 72:0 -cert /tmp/x509up_u`id -u`.orig -key /tmp/x509up_u`id -u`.orig
+
 Add the following arguments to ``pycbc_submit_dax``::
 
     --no-create-proxy \
     --execution-sites osg \
-    --append-pegasus-property 'pegasus.transfer.bypass.input.staging=true’ \
+    --append-pegasus-property 'pegasus.transfer.bypass.input.staging=true' \
     --remote-staging-server `hostname -f` \
     --cache [URL/location of osg cache file] \
 
@@ -714,18 +722,7 @@ Add the following arguments to ``pycbc_submit_dax``::
 
 ``hostname -f`` will give the correct value if there is a gsiftp server running on the submit machine.  If not, change this as needed. The remote-staging-site is the intermediary computer than can pass files between the submitting computer and the computers doing the work.  ``hostname -f`` returns the full name of the computer. The full name of the computer that ``hostname -f`` has to be one that is accessible to both the submit machine and the workers. 
 
-
-Before running the workflow, a proxy compatible with Xrootd needs to be generated. To generate this proxy run the commands
-::
-
-    ligo-proxy-init albert.einstein
-    cp /tmp/x509up_u`id -u` /tmp/x509up_u`id -u`.orig
-    grid-proxy-init -valid 72:0 -cert /tmp/x509up_u`id -u`.orig -key /tmp/x509up_u`id -u`.orig
-
-Like ligo-proxy-init this needs to be reinitialized every 72 hours (3 days).
-
-
-To prevent unnessary copying of files run these commands after ``submitdir/work/main_ID0000001`` exists::
+If you are in the run directory of your workflow use ``cd output/submitdir/work/main_ID0000001``. If you are not in the run directory. Go to ``https://sugar-dev2.phy.syr.edu/pegasus/u/[username]`` and find the submit directory of the run most recently submitted. To prevent unnessary copying of files run these commands after ``submitdir/work/main_ID0000001`` exists.::
 
      cd [submit directory]
      cd main_ID0000001

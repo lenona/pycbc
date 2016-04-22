@@ -796,22 +796,30 @@ is to include the <code class="docutils literal"><span class="pre">osg_executabl
 <div class="highlight-python"><div class="highlight"><pre>https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-software/tree/master
 </pre></div>
 </div>
-<p>When downloading the <code class="docutils literal"><span class="pre">osg_executables.ini</span></code> make sure that you are obtaining the correct version.</p>
-<p>Add the following to the list of <code class="docutils literal"><span class="pre">--config-overrides</span></code> when running <code class="docutils literal"><span class="pre">pycbc_make_coinc_search_workflow</span></code>:</p>
+<p>When downloading the <code class="docutils literal"><span class="pre">osg_executables.ini</span></code> make sure that you are obtaining the correct version. The URL/location for the <code class="docutils literal"><span class="pre">osg_executables.ini</span></code> should be added to the list of config files:</p>
 <div class="highlight-python"><div class="highlight"><pre>[URL/location for osg_executables.ini] \
-&#39;pegasus_profile-inspiral:hints|execution.site:osg&#39; \
-&#39;pegasus_profile-inspiral:condor|request_memory:1920M&#39; \
-&#39;workflow-main:staging-site:osg=osg-scratch&#39; \
-&#39;pegasus_profile-inspiral:dagman|pre:/usr/bin/grid-proxy-info&#39; \
+</pre></div>
+</div>
+<p>Add the following to the list of <code class="docutils literal"><span class="pre">--config-overrides</span></code> when running <code class="docutils literal"><span class="pre">pycbc_make_coinc_search_workflow</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;pegasus_profile-inspiral:hints|execution.site:osg&#39;</span> \
+<span class="s">&#39;pegasus_profile-inspiral:condor|request_memory:1920M&#39;</span> \
+<span class="s">&#39;workflow-main:staging-site:osg=osg-scratch&#39;</span> \
+<span class="s">&#39;pegasus_profile-inspiral:dagman|pre:/usr/bin/grid-proxy-info&#39;</span> \
 </pre></div>
 </div>
 </div>
 <div class="section" id="running-the-workflow">
 <h3>Running the workflow<a class="headerlink" href="#running-the-workflow" title="Permalink to this headline">¶</a></h3>
+<p>Before running the workflow, a proxy compatible with Xrootd needs to be generated. To generate this proxy run the commands</p>
+<div class="highlight-python"><div class="highlight"><pre>ligo-proxy-init albert.einstein
+cp /tmp/x509up_u`id -u` /tmp/x509up_u`id -u`.orig
+grid-proxy-init -valid 72:0 -cert /tmp/x509up_u`id -u`.orig -key /tmp/x509up_u`id -u`.orig
+</pre></div>
+</div>
 <p>Add the following arguments to <code class="docutils literal"><span class="pre">pycbc_submit_dax</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>--no-create-proxy \
 --execution-sites osg \
---append-pegasus-property &#39;pegasus.transfer.bypass.input.staging=true’ \
+--append-pegasus-property &#39;pegasus.transfer.bypass.input.staging=true&#39; \
 --remote-staging-server `hostname -f` \
 --cache [URL/location of osg cache file] \
 </pre></div>
@@ -821,14 +829,7 @@ is to include the <code class="docutils literal"><span class="pre">osg_executabl
 <p class="last">Cache files for the C02 frames can be obtained from <a class="reference external" href="https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/tree/master/O1/osg-cache-frame-files">https://code.pycbc.phy.syr.edu/ligo-cbc/pycbc-config/tree/master/O1/osg-cache-frame-files</a>. The cache file contains the location of the frame files on Sugar, XSede, and xroot.</p>
 </div>
 <p><code class="docutils literal"><span class="pre">hostname</span> <span class="pre">-f</span></code> will give the correct value if there is a gsiftp server running on the submit machine.  If not, change this as needed. The remote-staging-site is the intermediary computer than can pass files between the submitting computer and the computers doing the work.  <code class="docutils literal"><span class="pre">hostname</span> <span class="pre">-f</span></code> returns the full name of the computer. The full name of the computer that <code class="docutils literal"><span class="pre">hostname</span> <span class="pre">-f</span></code> has to be one that is accessible to both the submit machine and the workers.</p>
-<p>Before running the workflow, a proxy compatible with Xrootd needs to be generated. To generate this proxy run the commands</p>
-<div class="highlight-python"><div class="highlight"><pre>ligo-proxy-init albert.einstein
-cp /tmp/x509up_u`id -u` /tmp/x509up_u`id -u`.orig
-grid-proxy-init -valid 72:0 -cert /tmp/x509up_u`id -u`.orig -key /tmp/x509up_u`id -u`.orig
-</pre></div>
-</div>
-<p>Like ligo-proxy-init this needs to be reinitialized every 72 hours (3 days).</p>
-<p>To prevent unnessary copying of files run these commands after <code class="docutils literal"><span class="pre">submitdir/work/main_ID0000001</span></code> exists:</p>
+<p>If you are in the run directory of your workflow use <code class="docutils literal"><span class="pre">cd</span> <span class="pre">output/submitdir/work/main_ID0000001</span></code>. If you are not in the run directory. Go to <code class="docutils literal"><span class="pre">https://sugar-dev2.phy.syr.edu/pegasus/u/[username]</span></code> and find the submit directory of the run most recently submitted. To prevent unnessary copying of files run these commands after <code class="docutils literal"><span class="pre">submitdir/work/main_ID0000001</span></code> exists.:</p>
 <div class="highlight-python"><div class="highlight"><pre>cd [submit directory]
 cd main_ID0000001
 perl -pi.bak -e &#39;s+file:///home+symlink:///home+g&#39; stage_inter_local_hdf_trigger_merge-*in
@@ -860,7 +861,7 @@ perl -pi.bak -e &#39;s+gsiftp://sugar-dev2.phy.syr.edu/home+file:///home+g&#39; 
   <div role="contentinfo">
     <p>
         &copy; Copyright 2014, Alexander Nitz.
-      Last updated on Apr 21, 2016.
+      Last updated on Apr 22, 2016.
 
     </p>
   </div>
