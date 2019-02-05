@@ -418,11 +418,20 @@ class _XMLInjectionSet(object):
         name, phase_order = legacy_approximant_name(inj.waveform)
 
         # compute the waveform time series
-        hp, hc = get_td_waveform(
+        if name == 'EccentricFD':
+            hp, hc = get_td_waveform(
+                inj, approximant=name, delta_t=delta_t,
+                phase_order=phase_order,
+                f_lower=f_l, distance=inj.distance, eccentricity=inj.alpha1,
+                long_asc_nodes=inj.alpha2,
+                **self.extra_args)
+        else:
+            hp, hc = get_td_waveform(
             inj, approximant=name, delta_t=delta_t,
             phase_order=phase_order,
             f_lower=f_l, distance=inj.distance,
             **self.extra_args)
+
 
         hp /= distance_scale
         hc /= distance_scale
