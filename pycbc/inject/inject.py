@@ -423,7 +423,7 @@ class _XMLInjectionSet(object):
                 inj, approximant=name, delta_t=delta_t,
                 phase_order=phase_order,
                 f_lower=f_l, distance=inj.distance, eccentricity=inj.alpha1,
-                long_asc_nodes=inj.alpha2,
+                long_asc_nodes=inj.polarization - np.pi / 2.0,
                 **self.extra_args)
         else:
             hp, hc = get_td_waveform(
