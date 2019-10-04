@@ -1351,6 +1351,10 @@ def match(vec1, vec2, psd=None, low_frequency_cutoff=None,
     htilde = make_frequency_series(vec1)
     stilde = make_frequency_series(vec2)
 
+    tlen2 = max(len(htilde), len(stilde))
+    htilde.resize(tlen2)
+    stilde.resize(tlen2)
+
     N = (len(htilde)-1) * 2
 
     global _snr

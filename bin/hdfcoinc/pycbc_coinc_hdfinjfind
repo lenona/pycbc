@@ -34,6 +34,7 @@ def keep_ind(times, start, end):
     times = times[time_sorting]
     indices = numpy.array([], dtype=numpy.uint32)
     right = numpy.searchsorted(times, end, side='right')
+    left = numpy.searchsorted(times, start, side='left')
 
     for li, ri in zip(left, right):
         seg_indices = numpy.arange(li, ri, 1).astype(numpy.uint32)
