@@ -450,7 +450,6 @@ def get_td_waveform(template=None, **kwargs):
     """
     input_params = props(template, required_args=td_required_args, **kwargs)
     approximant = input_params['approximant']
-    print("The approximant we are using is: " + approximant)
     wav_gen = td_wav[type(_scheme.mgr.state)]
     if input_params['approximant'] not in wav_gen:
         raise ValueError("Approximant %s not available" %
