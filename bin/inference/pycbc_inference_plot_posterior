@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/work/amber.lenon/src/pycbc-ecc/bin/python2
 
 # Copyright (C) 2016 Miriam Cabero Mueller, Collin Capano
 #
@@ -202,7 +202,8 @@ for (i, s) in enumerate(samples):
         axis_dict = None
 
     # get a default line color; this is used for the 1D marginal lines
-    linecolor = next(colors)
+    linecolor = 'red'
+    #linecolor = next(colors)
     # set different colors depending on if one or more files was provided
     if len(opts.input_file) == 1:
         # make the hist color black or white, depending on if dark background
@@ -212,7 +213,7 @@ for (i, s) in enumerate(samples):
         else:
             hist_color = 'black'
         # make histograms filled if only one input file to plot
-        fill_color = 'gray'
+        fill_color = 'lightgray'
         # make the default contour color white if plot density is on
         if not opts.contour_color and opts.plot_density:
             contour_color = 'white'
