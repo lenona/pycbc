@@ -854,6 +854,7 @@ _filter_time_lengths["IMRPhenomXHM"] = imrphenomhm_length_in_time
 _filter_time_lengths["IMRPhenomXPHM"] = imrphenomhm_length_in_time
 _filter_time_lengths["SpinTaylorF2"] = spa_length_in_time
 _filter_time_lengths["TaylorF2NL"] = spa_length_in_time
+_filter_time_lengths["EccentricFD"] = spa_length_in_time
 _filter_time_lengths["PreTaylorF2"] = spa_length_in_time
 
 # Also add generators for switching between approximants
